@@ -1,11 +1,12 @@
+import Layout from '../../Components/Layout'
 import './Home.css'
 
 function Home() {
 
   return (
-  <div className='bg-lime-500 '>
+  <Layout>
     Home
-  </div>
+  </Layout>
   )
 }
 
