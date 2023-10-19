@@ -3,16 +3,19 @@ import Layout from "../../Components/Layout";
 import Card from "../../Components/Card";
 
 function Home() {
-  const [item, setItem] = useState(null)
-  
-  useEffect (() => {
-    fetch('https://api.escuelajs.co/api/v1/products')
-      .then(response => console.log(response.json()))
-  }, []) 
+  const [item, setItem] = useState(null);
+
+  useEffect(() => {
+    fetch("https://api.escuelajs.co/api/v1/products")
+      .then((response) => response.json())
+      .then((data) => setItem(data));
+  }, []);
 
   return (
     <Layout>
-      <Card />
+      {item?.map((item) => (
+        <Card key={item.id} data={item} />
+      ))}
     </Layout>
   );
 }
